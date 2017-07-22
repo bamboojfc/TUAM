@@ -1,8 +1,8 @@
 # TUAM
 
-Start mongoDB :
-> mongod
-(at first time, you may have to create a directory : C:/data/db)
+Start mongoDB : <br/>
+:: mongod <br/>
+(at first time, you may have to create a directory : C:/data/db) <br/><br/>
 
 Running mongodb command :
 - Create Database
