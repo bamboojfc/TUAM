@@ -4,24 +4,24 @@
 :: mongod <br/>
 (at first time, you may have to create a directory : C:/data/db) <br/><br/>
 
-Running mongodb command :
-- Create Database
-> mongo
-> db tuam
+<h3>Running mongodb command :</h3>
+- Create Database<br/>
+    :: mongo<br/>
+    :: db tuam<br/>
 
-Start running project :
-> npm install (first time only)
-> npm start
+<h3>Start running project :</h3>
+    :: npm install (first time only)<br/>
+    :: npm start<br/>
 
-Start running project while developing :
-> npm run dev
+<h3>Start running project while developing :</h3>
+    :: npm run dev<br/>
 
-API route
-:: to add student (will close after finish development)
-    > HOSTNAME:PORT/api/addStudent/:order_id/:national_id/:name_type/:name/:lastname
-:: to search student by name
-    > HOSTNAME:PORT/api/search/:name/:lastname
-:: to search student by national id
-    > HOSTNAME:PORT/api/search/:national_id
-:: to insert more information of student
-    > HOSTNAME:PORT/update/:national_id/:goBackTime/:goBackType
+<h3>API route</h3>
+:: to add student (will close after finish development)<br/>
+    > HOSTNAME:PORT/api/addStudent/:order_id/:national_id/:name_type/:name/:lastname<br/>
+:: to search student by name<br/>
+    > HOSTNAME:PORT/api/search/:name/:lastname<br/>
+:: to search student by national id<br/>
+    > HOSTNAME:PORT/api/search/:national_id<br/>
+:: to insert more information of student<br/>
+    > HOSTNAME:PORT/update/:national_id/:goBackTime/:goBackType<br/>
