@@ -10,10 +10,12 @@
     :: db tuam<br/>
 
 <h3>Start running project while developing :</h3>
+    [[ install package ]] <br/>
     :: npm install <br/>
     [[ data data to database ]] <br/>
     :: cd api/model <br/>
     :: node dump.js <br/>
+    [[ run ]] <br/>
     :: npm run dev<br/>
 
 <h3>API route</h3>
