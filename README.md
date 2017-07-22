@@ -1,6 +1,6 @@
 # TUAM
 
-<h1>Start mongoDB : </h1>
+<h3>Start mongoDB : </h3>
 :: mongod <br/>
 (at first time, you may have to create a directory : C:/data/db) <br/><br/>
 
