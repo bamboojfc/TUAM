@@ -1,8 +1,9 @@
 'use strict';
 
+var config = require('../config');
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/fanOcesa');
+mongoose.connect('mongodb://'+config.HOSTNAME+'/'+config.DATABASE);
     
 var Schema = mongoose.Schema,
     errorHandler = require('./errors.server.controller'),
@@ -13,8 +14,7 @@ var Schema = mongoose.Schema,
  */
 var StudentSchema = new Schema({
 	order_id: {
-		type: String,
-		trim: true,
+		type: Number,
 		unique: true ,
 		required: 'order_id cannot be blank',
 		dropDups: true
@@ -160,7 +160,7 @@ exports.deleteAll = function(req, res) {
  * List of Students
  */
 exports.list = function(req, res) {
-	Student.find().sort('order_id').exec(function(err, students) {
+	Student.find().sort({order_id:1}).exec(function(err, students) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)

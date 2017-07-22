@@ -1,7 +1,7 @@
-const express = require('express');
-const app = express();
-const PORT = 3000;
-var students = require('../controller/StudentController');
+const express = require('express'),
+      config = require('../config'),
+      app = express(),
+      students = require('../controller/StudentController');
 
 
 app.get('/api/test', students.test);
@@ -19,7 +19,7 @@ app.route('/api/update/:national_id/:goBackTime/:goBackType')
 app.get('/api/deleteAll',students.deleteAll);
 
 //config api port
-app.listen(PORT, function() {
-  console.log('API is listening on '+PORT+'...')
+app.listen(config.API_PORT, function() {
+  console.log('API is listening on '+config.API_PORT+'...')
 });
 
