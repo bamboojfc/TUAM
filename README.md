@@ -6,7 +6,7 @@
 
 <h3>Running mongodb command :</h3>
 - Create Database<br/>
-    :: mongo<br/>
+    :: C:\Program Files\MongoDB\Server\3.4\bin\mongo<br/>
     :: db tuam<br/>
 
 <h3>Start running project :</h3>
