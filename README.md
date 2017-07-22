@@ -9,11 +9,11 @@
     :: C:\Program Files\MongoDB\Server\3.4\bin\mongo<br/>
     :: db tuam<br/>
 
-<h3>Start running project :</h3>
-    :: npm install (first time only)<br/>
-    :: npm start<br/>
-
 <h3>Start running project while developing :</h3>
+    :: npm install <br/>
+    [[ data data to database ]] <br/>
+    :: cd api/model <br/>
+    :: node dump.js <br/>
     :: npm run dev<br/>
 
 <h3>API route</h3>
