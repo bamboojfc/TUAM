@@ -4,11 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./api/route/route.js",
+    "start": "node ./api/route/route.js"
   },
   "author": "Nannapas Banluesombatkul, Prapansak Kaewlamul",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.15.3"
+    "express": "^4.15.3",
+    "mongodb": "^2.2.30",
+    "mongoose": "^4.11.3"
+  },
+  "devDependencies": {
+    "fast-csv": "^2.4.0",
+    "nodemon": "^1.11.0"
   }
 }
