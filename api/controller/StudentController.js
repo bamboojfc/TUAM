@@ -101,8 +101,7 @@ exports.update = function(req, res) {
     if(!req.student){
         res.json('This student is not found');
     }else{
-        var student = req.student; 
-        console.log(student);
+        var student = req.student;
 
         var updated_stu = {
             "order_id" : student.order_id,
@@ -192,7 +191,6 @@ exports.searchWithID = function(req, res) {
 
 exports.isUserExist = function(req, res, next) {
     console.log('searching student to update...');
-    console.log(req.params.national_id);
     Student.findOne({'national_id': req.params.national_id}).exec(function(err, student) {
         if (err) return next(err);
         req.student = student;
