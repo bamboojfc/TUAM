@@ -1,8 +1,10 @@
 const express = require('express'),
       config = require('../config'),
       app = express(),
-      students = require('../controller/StudentController');
+      students = require('../controller/StudentController'),
+      cors = require('cors');
 
+app.options('*', cors());
 
 /*after dump data finish, this following command should be commented.*/
 app.get('/api/test', students.test);
