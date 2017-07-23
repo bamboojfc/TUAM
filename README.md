@@ -14,6 +14,7 @@
     [[ data data to database ]] <br/>
     :: cd api/model <br/>
     :: node dump.js <br/>
+    **Don't forget to comment code in route.js after dump data<br/>
     [[ run ]] <br/>
     :: npm run dev<br/>
 
@@ -30,4 +31,4 @@
 :: to list all students and create students.csv file<br/>
     > HOSTNAME:PORT/api/list<br/>
     
-**Don't forget to comment code in route.js after dump data
+
