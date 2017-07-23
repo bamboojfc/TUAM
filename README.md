@@ -17,6 +17,7 @@
     [[ run ]] <br/>
     :: npm run dev<br/>
 
+
 <h3>API route</h3>
 :: to add student (will close after finish development)<br/>
     > HOSTNAME:PORT/api/addStudent/:order_id/:national_id/:name_type/:name/:lastname<br/>
@@ -25,4 +26,6 @@
 :: to search student by national id<br/>
     > HOSTNAME:PORT/api/search/:national_id<br/>
 :: to insert more information of student<br/>
-    > HOSTNAME:PORT/update/:national_id/:goBackTime/:goBackType<br/>
+    > HOSTNAME:PORT/api/update/:national_id/:goBackTime/:goBackType<br/>
+:: to list all students and create students.csv file<br/>
+    > HOSTNAME:PORT/api/list<br/>
