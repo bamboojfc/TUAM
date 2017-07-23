@@ -11,7 +11,6 @@
   "author": "Nannapas Banluesombatkul, Prapansak Kaewlamul",
   "license": "ISC",
   "dependencies": {
-    "cors": "^2.8.4",
     "express": "^4.15.3",
     "fs": "0.0.1-security",
     "iconv-lite": "^0.4.18",

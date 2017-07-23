@@ -84,6 +84,8 @@ exports.create = function(req, res) {
             });
         } else {
             console.log('Already added.');
+            res.header("Access-Control-Allow-Origin", "*");
+            res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
             res.end('added a student order id : ' + stu.order_id);
         }
     });
@@ -121,6 +123,8 @@ exports.update = function(req, res) {
                     message: errorHandler.getErrorMessage(err)
                 });
             } else {
+                res.header("Access-Control-Allow-Origin", "*");
+                res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
                 res.json(student);
             }
         });
@@ -152,6 +156,8 @@ exports.deleteAll = function(req, res) {
 			});
 		} else {
 			console.log('Deleted all students..');
+            res.header("Access-Control-Allow-Origin", "*");
+            res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
             res.end('Deleted all students..');
 		}
 	});
@@ -170,6 +176,8 @@ exports.list = function(req, res) {
             console.log('All students listed!');
             writeToCSV(students);
             res.charset = 'utf8';
+            res.header("Access-Control-Allow-Origin", "*");
+            res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 			res.json(students);
 		}
 	});
@@ -178,6 +186,8 @@ exports.list = function(req, res) {
 exports.searchWithName = function(req, res) {
 	Student.findOne({ name: req.params.name, lastname: req.params.lastname }, function (err, doc){
         console.log('searching..');
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
         res.json(doc);
     });
 };
@@ -185,6 +195,8 @@ exports.searchWithName = function(req, res) {
 exports.searchWithID = function(req, res) {
 	Student.findOne({ national_id: req.params.national_id }, function (err, doc){
         console.log('searching..');
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
         res.json(doc);
     });
 };
