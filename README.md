@@ -29,3 +29,5 @@
     > HOSTNAME:PORT/api/update/:national_id/:goBackTime/:goBackType<br/>
 :: to list all students and create students.csv file<br/>
     > HOSTNAME:PORT/api/list<br/>
+    
+**Don't forget to comment code in route.js after dump data
