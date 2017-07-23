@@ -42,15 +42,15 @@ if (request.status === 200) {
             }
             var xmlhttp=new XMLHttpRequest();
             xmlhttp.onreadystatechange=handleStateChange;
-            console.log(HOST+'/api/addStudent/'+parseInt(data[0].replace(/,/g, ''), 10)+'/'+data[1]+'/'+data[2]+'/'+data[3]+'/'+data[4]);
-            xmlhttp.open("GET",HOST+'/api/addStudent/'+parseInt(data[0].replace(/,/g, ''), 10)+'/'+data[1]+'/'+data[2]+'/'+data[3]+'/'+data[4],'utf-8',true);
+            console.log('adding.. order_id : '+parseInt(data[0].replace(/,/g, ''), 10));
+            xmlhttp.open("GET",HOST+'/api/addStudent/'+parseInt(data[0].replace(/,/g, ''), 10)+'/'+data[1]+'/'+encodeURIComponent(data[2])+'/'+encodeURIComponent(data[3])+'/'+encodeURIComponent(data[4]),false);
             xmlhttp.send(null);
         }else{
             count++;
         }
     })
     .on("end", function(){
-        console.log("Added "+count+" students succesfully.");
+        console.log("Added "+(count-1)+" students succesfully.");
     });
 
 }else{

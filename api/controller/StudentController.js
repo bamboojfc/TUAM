@@ -4,6 +4,8 @@ var config = require('../config');
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://'+config.HOSTNAME+'/'+config.DATABASE);
+
+var fs = require('fs');
     
 var Schema = mongoose.Schema,
     errorHandler = require('./errors.server.controller'),
@@ -167,6 +169,7 @@ exports.list = function(req, res) {
 			});
 		} else {
             console.log('All students listed!');
+            writeToCSV(students);
             res.charset = 'utf8';
 			res.json(students);
 		}
@@ -195,4 +198,30 @@ exports.isUserExist = function(req, res, next) {
         req.student = student;
         next();
     });
+};
+
+var writeToCSV = function(students){
+    var array = typeof students != 'object' ? JSON.parse(students) : students;
+    var str = 'ลำดับจองที่นั่ง,เลขที่บัตร ปชช./Passort No.,คำนำหน้า,ชื่อ,สกุล,เวลาเดินทางกลับ,ประเภทการเดินทาง\r\n';
+    var line = '';
+
+    for (var i = 0; i < array.length; i++) {
+        
+        line += array[i]["order_id"]+','+array[i]["national_id"]+','+array[i]["name_type"]+','+array[i]["name"]+','+array[i]["lastname"];
+        
+        line += ",";
+        if(array[i]["goBackTime"]) line += array[i]["goBackTime"];
+
+        line += ",";
+        if(array[i]["goBackType"]) line += array[i]["goBackType"];
+        
+        str += line + '\r\n';
+        line = '';
+    }
+    
+    fs.writeFile('./api/model/students.csv', str, (err) => {
+        if (err) throw err;
+        console.log('The file has been saved!');
+    });
+    
 };

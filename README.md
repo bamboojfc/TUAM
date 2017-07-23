@@ -1,15 +1,14 @@
 # TUAM
 
-<h3>Start mongoDB : </h3>
-:: mongod <br/>
+<h3>1. Start mongoDB : </h3>
+:: C:\Program Files\MongoDB\Server\3.4\bin\mongod <br/>
 (at first time, you may have to create a directory : C:/data/db) <br/><br/>
 
-<h3>Running mongodb command :</h3>
-- Create Database<br/>
+<h3>2. Create Database :</h3>
     :: C:\Program Files\MongoDB\Server\3.4\bin\mongo<br/>
     :: db tuam<br/>
 
-<h3>Start running project while developing :</h3>
+<h3>3. Start running project while developing :</h3>
     [[ install package ]] <br/>
     :: npm install <br/>
     [[ data data to database ]] <br/>
