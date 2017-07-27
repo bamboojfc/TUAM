@@ -166,7 +166,7 @@ exports.deleteAll = function(req, res) {
 /**
  * List of Students
  */
-exports.list = function(req, res) {
+exports.list = function(req, res, next) {
 	Student.find().sort({order_id:1}).exec(function(err, students) {
 		if (err) {
 			return res.status(400).send({
@@ -176,9 +176,7 @@ exports.list = function(req, res) {
             console.log('All students listed!');
             writeToCSV(students);
             res.charset = 'utf8';
-            res.header("Access-Control-Allow-Origin", "*");
-            res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-            res.json(students);
+            next();
 		}
 	});
 };
