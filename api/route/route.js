@@ -4,9 +4,9 @@ const express = require('express'),
       students = require('../controller/StudentController');
 
 /*after dump data finish, this following command should be commented.*/
-app.get('/api/test', students.test);
-app.get('/api/addStudent/:order_id/:national_id/:name_type/:name/:lastname', students.create);
-app.get('/api/deleteAll',students.deleteAll);
+//app.get('/api/test', students.test);
+//app.get('/api/addStudent/:order_id/:national_id/:name_type/:name/:lastname', students.create);
+//app.get('/api/deleteAll',students.deleteAll);
 /* ----------------------------------------------------------------- */
 
 app.get('/api/list', students.list);
