@@ -4,7 +4,7 @@ var config = require('../config');
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://'+config.HOSTNAME+'/'+config.DATABASE);
-
+var csv = '';
 var fs = require('fs');
     
 var Schema = mongoose.Schema,
@@ -174,7 +174,7 @@ exports.list = function(req, res, next) {
 			});
 		} else {
             console.log('All students listed!');
-            writeToCSV(students);
+            csv = writeToCSV(students);
             res.charset = 'utf8';
             next();
 		}
@@ -190,16 +190,17 @@ exports.download = function(req, res){
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 
-    var file = path.join(__dirname, '../model', 'students.csv');
+    var file = '/opt/TUAM/api/model/students.csv';
 
     var filename = path.basename(file);
     var mimetype = mime.lookup(file);
 
     res.setHeader('Content-disposition', 'attachment; filename=' + filename);
-    res.setHeader('Content-type', mimetype);
+    res.setHeader('Content-type', mimetype+'; charset=utf-8');
 
     var filestream = fs.createReadStream(file);
     filestream.pipe(res);
+    res.end(csv);
 };
 
 exports.searchWithName = function(req, res) {
@@ -252,5 +253,6 @@ var writeToCSV = function(students){
         if (err) throw err;
         console.log('The file has been saved!');
     });
+    return str;
     
 };
