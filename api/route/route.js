@@ -10,6 +10,7 @@ app.get('/api/deleteAll',students.deleteAll);
 /* ----------------------------------------------------------------- */
 
 app.get('/api/list', students.list);
+app.get('/api/list/download', students.download);
 app.get('/api/search/:name/:lastname',students.searchWithName);
 app.get('/api/search/:national_id',students.searchWithID);
 

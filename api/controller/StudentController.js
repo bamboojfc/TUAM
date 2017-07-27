@@ -178,9 +178,30 @@ exports.list = function(req, res) {
             res.charset = 'utf8';
             res.header("Access-Control-Allow-Origin", "*");
             res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-			res.json(students);
+            res.json(students);
 		}
 	});
+};
+
+
+exports.download = function(req, res){
+    var path = require('path');
+    var mime = require('mime');
+    
+    res.charset = 'utf8';
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+
+    var file = path.join(__dirname, '../model', 'students.csv');
+
+    var filename = path.basename(file);
+    var mimetype = mime.lookup(file);
+
+    res.setHeader('Content-disposition', 'attachment; filename=' + filename);
+    res.setHeader('Content-type', mimetype);
+
+    var filestream = fs.createReadStream(file);
+    filestream.pipe(res);
 };
 
 exports.searchWithName = function(req, res) {
